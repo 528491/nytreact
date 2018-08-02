@@ -1,11 +1,18 @@
-var express = require("express");
-var path = require('path');
-//var bodyParser = require("body-parser");
+const express = require("express");
+const path = require('path');
+const mongoose = require('mongoose');
+const Article = require('./models/Article');
 
-var app = express();
+
+//Will connect to mongoose in this single file as well - goal is to get an "mvp"
+//up and running before refactoring
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/nytreact";
+mongoose.connect(MONGODB_URI);
+
+const app = express();
 
 //3001 chosen so as not to conflict with the port the react server will be listening on
-var PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001;
 
 app.use(express.static(path.join(__dirname, 'nytreact-client/build')));
 
@@ -14,6 +21,10 @@ app.use(express.static(path.join(__dirname, 'nytreact-client/build')));
 //implemented successfully
 app.get("/helloworld", function(req, res){
     res.send("<h1>Hello World! Server is functioning properly!</h1>")
+});
+
+app.get("/api/articles", function(req, res){
+
 });
 
 //Catch-all route that is meant to serve the express app
