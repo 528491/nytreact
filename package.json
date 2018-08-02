@@ -1,0 +1,13 @@
+{
+  "name": "nytreact-server",
+  "version": "1.0.0",
+  "description": "Server code designed to serve the react client as well as api routes for manipulating articles in the database.",
+  "main": "server.js",
+  "repository": "https://github.com/528491/nytreact.git",
+  "author": "528491 <jacobminasian@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3"
+  }
+}
