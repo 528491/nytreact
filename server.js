@@ -1,4 +1,5 @@
 var express = require("express");
+var path = require('path');
 //var bodyParser = require("body-parser");
 
 var app = express();
@@ -11,6 +12,11 @@ var PORT = process.env.PORT || 3001;
 //implemented successfully
 app.get("/helloworld", function(req, res){
     res.send("<h1>Hello World! Server is functioning properly!</h1>")
+});
+
+//Catch-all route that is meant to serve the express app
+app.get("*", function(req, res){
+    res.sendFile(path.join(__dirname, "/nytreact-client/build/index.html"));
 });
 
 app.listen(PORT, function() {
