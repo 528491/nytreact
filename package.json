@@ -6,6 +6,7 @@
   "repository": "https://github.com/528491/nytreact.git",
   "author": "528491 <jacobminasian@gmail.com>",
   "license": "MIT",
+  
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3",

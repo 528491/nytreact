@@ -1,9 +1,7 @@
 const router = require("express").Router();
 
-router.use("/test", function(req, res){
-    res.send("<p>You are now in the articles route</p>");
+router.get("/", function(req, res){
+    res.send("<p>You have successfully hit the /api/articles get route</p>");
 });
-
-
 
 module.exports = router;
